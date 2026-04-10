@@ -1,0 +1,20 @@
+{
+  "name": "xingqiu-api",
+  "version": "1.0.0",
+  "description": "想法星球后端 API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "fastify": "^5.0.0",
+    "@fastify/cors": "^10.0.0",
+    "@fastify/multipart": "^9.0.0",
+    "@fastify/static": "^8.0.0",
+    "sqlite3": "^5.1.7",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^11.0.0"
+  }
+}

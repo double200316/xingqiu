@@ -1,0 +1,7 @@
+node_modules/
+.env
+xingqiu.db
+uploads/
+.DS_Store
+Thumbs.db
+*.log
