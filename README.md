@@ -44,16 +44,17 @@ xingqiu-open/
 
 ## API 接口
 
-| 方法 | 路径 | 说明 |
-|------|------|------|
-| POST | /api/register | 用户注册 |
-| POST | /api/login | 用户登录 |
-| GET | /api/ideas | 获取想法列表 |
-| POST | /api/ideas | 发布想法 |
-| POST | /api/ideas/:id/vote | 投票 |
-| GET | /api/ideas/:id/comments | 获取评论 |
-| POST | /api/ideas/:id/comments | 发表评论 |
-| POST | /api/upload | 上传图片 |
+<!-- html:translate=no -->
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/register` | 用户注册 |
+| POST | `/api/login` | 用户登录 |
+| GET | `/api/ideas` | 获取想法列表 |
+| POST | `/api/ideas` | 发布想法 |
+| POST | `/api/ideas/:id/vote` | 投票 |
+| GET | `/api/ideas/:id/comments` | 获取评论 |
+| POST | `/api/ideas/:id/comments` | 发表评论 |
+| POST | `/api/upload` | 上传图片 |
 
 ## 快速开始
 
@@ -92,4 +93,5 @@ pm2 start ecosystem.config.js
 
 ## License
 
+<!-- html:translate=no -->
 [MIT](LICENSE)
