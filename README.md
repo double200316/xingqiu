@@ -1,6 +1,6 @@
-# 想法星球 (IdeaPlanet)
+# 想法星球·创意星球
 
-> <!-- html:translate=no -->Discover and share great ideas in the AI era
+> 中国版 Product Hunt — AI 时代的好想法发现社区
 
 [![Website](https://img.shields.io/badge/website-创启星球.com-0ea5e9)](https://创启星球.com)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
@@ -83,8 +83,7 @@ pm2 start ecosystem.config.js
 
 ## 在线体验
 
-<!-- html:translate=no -->
-**https://创启星球.com**
+**http://159.75.11.160/**
 
 ## 截图
 
