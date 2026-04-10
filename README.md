@@ -1,16 +1,18 @@
 # 想法星球 (IdeaPlanet)
 
-> AI 时代的好想法发现与分享社区 | Discover and share great ideas in the AI era
+> <!-- html:translate=no -->Discover and share great ideas in the AI era
 
 [![Website](https://img.shields.io/badge/website-创启星球.com-0ea5e9)](https://创启星球.com)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ## 简介
 
+<!-- html:translate=no -->
 想法星球是一个面向创业者和产品爱好者的想法分享平台，类似中国版的 Product Hunt。用户可以发布、发现、投票和讨论各种创新想法。
 
 ## 功能特色
 
+<!-- html:translate=no -->
 - **想法发布** - 支持图标、标题、tagline、分类、状态（💡想法 / 🔨开发中 / ✅已上线）
 - **投票系统** - 每日投票、防重复、排行榜（今日榜 / 本周榜 / 最新）
 - **用户系统** - 注册、登录、JWT 鉴权、头像
@@ -81,14 +83,17 @@ pm2 start ecosystem.config.js
 
 ## 在线体验
 
+<!-- html:translate=no -->
 **https://创启星球.com**
 
 ## 截图
 
+<!-- html:translate=no -->
 > 深色星际主题设计，星空粒子背景，毛玻璃卡片效果
 
 ## 贡献
 
+<!-- html:translate=no -->
 欢迎提交 Issue 和 Pull Request！
 
 ## License
