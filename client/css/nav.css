@@ -1,0 +1,164 @@
+/* ========== 导航栏 - GitHub 风格 ========== */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 var(--space-lg);
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-right: var(--space-lg);
+}
+.nav-logo-icon {
+  color: var(--fg-default);
+}
+.nav-logo-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--fg-default);
+  letter-spacing: -0.01em;
+}
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.nav-links {
+  display: flex;
+  gap: 2px;
+}
+.nav-links a {
+  padding: 6px 12px;
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-links a:hover {
+  color: var(--fg-default);
+  background: var(--bg-muted);
+  text-decoration: none;
+}
+.nav-links a.active {
+  color: var(--fg-default);
+  background: var(--bg-muted);
+  font-weight: 600;
+}
+
+.nav-right {
+  flex-shrink: 0;
+  margin-left: var(--space-md);
+}
+
+/* ========== Footer ========== */
+
+footer {
+  margin-top: 64px;
+  border-top: 1px solid var(--border-default);
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  background: var(--bg-canvas);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  padding-bottom: var(--space-xl);
+}
+
+.footer-brand {
+  max-width: 280px;
+  flex-shrink: 0;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--fg-default);
+  margin-bottom: var(--space-sm);
+}
+.footer-logo-icon { font-size: 20px; }
+.footer-slogan {
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+.footer-social {
+  display: flex;
+  gap: var(--space-md);
+}
+.footer-social span {
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.footer-social span:hover { opacity: 1; }
+
+.footer-links-group {
+  display: flex;
+  gap: 64px;
+  flex: 1;
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.footer-col-title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--fg-default);
+  margin-bottom: var(--space-xs);
+}
+.footer-col a {
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.footer-col a:hover { color: var(--accent-fg); text-decoration: none; }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-size: var(--text-xs);
+  color: var(--fg-subtle);
+  flex-wrap: wrap;
+}
+.footer-divider { opacity: 0.3; }
+.footer-legal-link {
+  color: var(--fg-subtle);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.footer-legal-link:hover { color: var(--fg-muted); text-decoration: none; }
