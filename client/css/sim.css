@@ -1,0 +1,807 @@
+/* ========== 创业模拟器 - GitHub Dashboard 风格 ========== */
+
+.page-container { display: none; }
+.page-container.active { display: block; }
+
+.sim-empty {
+  text-align: center;
+  padding: 80px var(--space-lg);
+}
+.sim-empty h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: var(--space-md) 0 var(--space-sm);
+}
+.sim-empty p {
+  color: var(--fg-muted);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+}
+.sim-empty-features {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+.sim-empty-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+.sim-empty-feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ========== 游戏布局 ========== */
+
+.sim-game-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 300px;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: calc(100vh - 56px - 120px);
+}
+.sim-left-col,
+.sim-mid-col,
+.sim-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ========== 模拟器通用组件 ========== */
+
+.sim-btn {
+  padding: 6px 14px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--fg-default);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.sim-btn:hover {
+  background: var(--bg-subtle);
+  border-color: var(--fg-subtle);
+}
+.sim-btn-primary {
+  background: var(--accent-emphasis);
+  border-color: var(--accent-emphasis);
+  color: var(--fg-on-emphasis);
+}
+.sim-btn-primary:hover {
+  background: #388bfd;
+}
+.sim-btn-accent {
+  background: var(--done-emphasis);
+  border-color: var(--done-emphasis);
+  color: var(--fg-on-emphasis);
+}
+.sim-btn-accent:hover {
+  background: #a371f7;
+}
+.sim-btn-sm {
+  padding: 3px 10px;
+  font-size: var(--text-xs);
+}
+
+.sim-input {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--fg-default);
+  font-size: var(--text-sm);
+  font-family: var(--font);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.sim-input:focus {
+  border-color: var(--accent-fg);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+.sim-input::placeholder { color: var(--fg-subtle); }
+
+/* ========== 模拟器卡片 ========== */
+
+.sim-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.sim-card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.sim-card-title-left {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--fg-default);
+}
+
+/* ========== 公司卡片 ========== */
+
+.sim-company-card {
+  padding: var(--space-md);
+}
+.sim-company-name {
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--fg-default);
+  margin-bottom: 2px;
+}
+.sim-company-track {
+  font-size: var(--text-xs);
+  color: var(--fg-muted);
+  margin-bottom: var(--space-sm);
+}
+
+/* Phase 进度条 */
+.sim-phase-bar {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 6px;
+}
+.sim-phase-bar .phase-dot {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-muted);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+.sim-phase-bar .phase-dot.current { background: var(--accent-fg); }
+.sim-phase-bar .phase-dot.done { background: var(--success-fg); }
+.sim-phase-bar .phase-dot.fail { background: var(--danger-fg); }
+
+.sim-phase-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: var(--fg-subtle);
+  margin-bottom: 4px;
+}
+
+/* ========== 财务 ========== */
+
+.sim-money-big {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--fg-default);
+  margin-bottom: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.sim-finance-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: var(--text-sm);
+}
+.sim-finance-label { color: var(--fg-muted); }
+.sim-finance-val { font-weight: 600; font-variant-numeric: tabular-nums; }
+.sim-finance-val.green { color: var(--success-fg); }
+.sim-finance-val.red { color: var(--danger-fg); }
+.sim-finance-val.blue { color: var(--accent-fg); }
+
+/* ========== 指标条 ========== */
+
+.sim-metrics { display: flex; flex-direction: column; gap: 8px; }
+.sim-metric-label {
+  font-size: var(--text-xs);
+  color: var(--fg-muted);
+  margin-bottom: 2px;
+}
+.sim-metric-bar {
+  height: 6px;
+  background: var(--bg-muted);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.sim-metric-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+.sim-m-product { background: var(--accent-fg); }
+.sim-m-market { background: var(--success-fg); }
+.sim-m-rep { background: var(--warning-fg); }
+.sim-m-morale { background: var(--done-fg); }
+
+.sim-metric-val {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--fg-default);
+  text-align: right;
+  margin-top: 2px;
+}
+
+/* ========== 团队 ========== */
+
+.sim-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+.sim-team-member {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: var(--bg-muted);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  color: var(--fg-default);
+  transition: background 0.15s;
+}
+.sim-team-member:hover { background: var(--bg); }
+
+.sim-team-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: var(--bg-subtle);
+  flex-shrink: 0;
+}
+.sim-team-info {
+  flex: 1;
+  min-width: 0;
+}
+.sim-team-name {
+  font-weight: 600;
+  font-size: var(--text-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sim-team-role {
+  color: var(--fg-subtle);
+  font-size: 10px;
+}
+
+.sim-team-slot-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: var(--bg-muted);
+  border: 1px dashed var(--border-default);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  color: var(--fg-subtle);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.sim-team-slot-empty:hover {
+  border-color: var(--fg-subtle);
+  color: var(--fg-muted);
+}
+
+/* ========== 行动网格 ========== */
+
+.sim-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: var(--space-md);
+}
+.sim-action-card {
+  padding: 10px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+}
+.sim-action-card:hover {
+  border-color: var(--fg-subtle);
+  background: var(--bg);
+}
+.sim-action-card.selected {
+  border-color: var(--accent-fg);
+  background: var(--accent-subtle);
+}
+.sim-action-icon { font-size: 20px; margin-bottom: 4px; }
+.sim-action-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--fg-default);
+  margin-bottom: 2px;
+}
+.sim-action-desc {
+  font-size: 10px;
+  color: var(--fg-subtle);
+  line-height: 1.3;
+}
+.sim-action-cost {
+  font-size: 10px;
+  color: var(--warning-fg);
+  margin-top: 4px;
+}
+
+.sim-exec-row {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: flex-end;
+}
+
+/* ========== 历史记录 ========== */
+
+.sim-history-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+.sim-history-item {
+  padding: 8px 10px;
+  background: var(--bg-muted);
+  border-radius: var(--radius-sm);
+  margin-bottom: 4px;
+  font-size: var(--text-xs);
+  color: var(--fg-muted);
+  line-height: 1.5;
+  animation: slideInUp 0.2s ease;
+}
+.sim-history-round {
+  font-weight: 600;
+  color: var(--fg-default);
+  margin-bottom: 2px;
+}
+.sim-history-tag {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+/* ========== NPC 对话 ========== */
+
+.sim-dialogue-feed {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 4px;
+}
+.sim-dialogue {
+  padding: 8px 10px;
+  background: var(--bg-muted);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  animation: slideInUp 0.2s ease;
+}
+.sim-dialogue-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.sim-dialogue-avatar {
+  font-size: 14px;
+}
+.sim-dialogue-name {
+  font-weight: 600;
+  color: var(--fg-default);
+}
+.sim-dialogue-role {
+  color: var(--fg-subtle);
+  font-size: 10px;
+}
+.sim-dialogue-text {
+  color: var(--fg-muted);
+}
+
+/* ========== 赛道选择 ========== */
+
+.sim-track-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+}
+.sim-track-card {
+  padding: var(--space-md);
+  background: var(--bg-muted);
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+}
+.sim-track-card:hover {
+  border-color: var(--fg-subtle);
+}
+.sim-track-card.selected {
+  border-color: var(--accent-fg);
+  background: var(--accent-subtle);
+}
+.sim-track-icon { font-size: 24px; margin-bottom: 6px; }
+.sim-track-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--fg-default);
+  margin-bottom: 4px;
+}
+.sim-track-desc {
+  font-size: var(--text-xs);
+  color: var(--fg-muted);
+  margin-bottom: 6px;
+}
+.sim-track-bonus {
+  font-size: 10px;
+  color: var(--accent-fg);
+  font-weight: 500;
+}
+
+/* ========== NPC 招募 ========== */
+
+.sim-recruit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.sim-recruit-card {
+  padding: var(--space-md);
+  background: var(--bg-muted);
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.sim-recruit-card:hover {
+  border-color: var(--fg-subtle);
+}
+.sim-recruit-card.selected {
+  border-color: var(--accent-fg);
+  background: var(--accent-subtle);
+}
+.sim-recruit-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.sim-recruit-avatar {
+  font-size: 20px;
+}
+.sim-recruit-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--fg-default);
+}
+.sim-recruit-role {
+  font-size: 10px;
+  color: var(--fg-subtle);
+}
+.sim-recruit-stats {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+.sim-recruit-stat {
+  flex: 1;
+  text-align: center;
+  padding: 3px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+}
+.sim-recruit-stat-val {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--fg-default);
+}
+.sim-recruit-stat-label {
+  font-size: 9px;
+  color: var(--fg-subtle);
+}
+.sim-recruit-salary {
+  font-size: var(--text-xs);
+  color: var(--warning-fg);
+  margin-top: 6px;
+}
+
+/* ========== Overlay & Dialog ========== */
+
+.sim-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--overlay-bg);
+  animation: fadeIn 0.15s ease;
+}
+.sim-dialog {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-xl);
+  width: 90%;
+  animation: modalIn 0.2s ease;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+.sim-dialog-sm { max-width: 440px; }
+.sim-dialog-md { max-width: 640px; }
+.sim-dialog-lg { max-width: 840px; }
+
+/* ========== 事件横幅 ========== */
+
+.sim-event-banner {
+  padding: 10px var(--space-md);
+  background: var(--warning-subtle);
+  border: 1px solid rgba(210, 153, 34, 0.3);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--warning-fg);
+  animation: slideInUp 0.2s ease;
+}
+
+/* ========== 存档 ========== */
+
+.sim-save-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  margin-bottom: 6px;
+}
+.sim-save-info {
+  flex: 1;
+  min-width: 0;
+}
+.sim-save-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--fg-default);
+}
+.sim-save-meta {
+  font-size: var(--text-xs);
+  color: var(--fg-subtle);
+}
+.sim-save-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* ========== 游戏结束 ========== */
+
+#simGameOverStats {
+  margin: var(--space-md) 0;
+  text-align: left;
+}
+.sim-gameover-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: var(--text-sm);
+  border-bottom: 1px solid var(--border-muted);
+}
+.sim-gameover-stat:last-child { border-bottom: none; }
+.sim-gameover-stat span:first-child { color: var(--fg-muted); }
+.sim-gameover-stat span:last-child { font-weight: 600; color: var(--fg-default); }
+
+.sim-achievement {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 2px;
+  border-radius: 20px;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  background: var(--warning-subtle);
+  color: var(--warning-fg);
+}
+.sim-achievement.gold {
+  background: var(--done-subtle);
+  color: var(--done-fg);
+}
+
+/* ========== 游戏结束统计 class（JS 动态写入） ========== */
+.sim-gameover-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: var(--space-md) 0;
+}
+.sim-gameover-stat {
+  min-width: 80px;
+  text-align: center;
+  padding: 10px 12px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-md);
+}
+.sim-gameover-stat .val {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fg-default);
+}
+.sim-gameover-stat .val.green { color: var(--success-fg); }
+.sim-gameover-stat .val.red { color: var(--danger-fg); }
+.sim-gameover-stat .label {
+  font-size: 11px;
+  color: var(--fg-muted);
+  margin-top: 2px;
+}
+.sim-achievements {
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+}
+
+/* ========== 分享海报 ========== */
+.poster-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+.poster-container {
+  width: 360px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+}
+.poster-header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+  padding: 28px 24px 20px;
+  text-align: center;
+  border-bottom: 1px solid #1e293b;
+}
+.poster-logo {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+.poster-emoji {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+.poster-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 4px;
+}
+.poster-subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+}
+.poster-body {
+  padding: 20px 24px;
+}
+.poster-track {
+  font-size: 12px;
+  color: #58a6ff;
+  font-weight: 500;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.poster-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.poster-stat {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.poster-stat-label {
+  font-size: 11px;
+  color: #64748b;
+}
+.poster-stat-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+.poster-achievements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.poster-ach {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 20px;
+  font-size: 11px;
+  color: #94a3b8;
+}
+.poster-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.qr-hint {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.5;
+}
+.qr-hint strong { color: #94a3b8; }
+.qr-placeholder {
+  width: 52px;
+  height: 52px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #475569;
+}
+.poster-actions {
+  display: flex;
+  gap: 10px;
+}
+.poster-btn-download {
+  padding: 10px 20px;
+  background: var(--accent-fg);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+.poster-btn-download:hover { opacity: 0.9; }
+.poster-btn-close {
+  padding: 10px 20px;
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
