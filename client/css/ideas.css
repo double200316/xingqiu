@@ -1,0 +1,250 @@
+/* ========== 想法卡片 - GitHub Issue 风格 ========== */
+
+.idea-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.idea-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.idea-card:hover {
+  border-color: var(--fg-subtle);
+}
+
+.idea-card-vote {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 8px;
+  background: var(--accent-subtle);
+  border-radius: var(--radius-md);
+  min-width: 48px;
+  text-align: center;
+  transition: all 0.15s;
+}
+.idea-card-vote:hover {
+  background: var(--accent-muted);
+}
+.idea-card-vote .vote-arrow {
+  font-size: 12px;
+  color: var(--accent-fg);
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.idea-card-vote:hover .vote-arrow { opacity: 1; }
+.idea-card-vote .vote-count {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-fg);
+}
+.idea-card-vote .vote-label {
+  font-size: 9px;
+  color: var(--fg-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.idea-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.idea-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.idea-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--fg-default);
+  line-height: 1.4;
+}
+.idea-card:hover .idea-title {
+  color: var(--accent-fg);
+}
+
+.idea-tagline {
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+  margin-top: 2px;
+  line-height: 1.5;
+}
+
+.idea-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: var(--text-xs);
+  color: var(--fg-subtle);
+  flex-wrap: wrap;
+}
+
+.idea-icon-inline {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* 状态标签 */
+.sim-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.sim-status-tag.idea {
+  background: var(--accent-subtle);
+  color: var(--accent-fg);
+}
+.sim-status-tag.building {
+  background: var(--warning-subtle);
+  color: var(--warning-fg);
+}
+.sim-status-tag.launched {
+  background: var(--success-subtle);
+  color: var(--success-fg);
+}
+
+/* 分类颜色标签 */
+.cat-color-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* ========== 想法详情 ========== */
+
+.idea-detail-modal {
+  padding: 0 !important;
+}
+.idea-detail-modal .detail-header {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--border-default);
+}
+.idea-detail-modal .detail-title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+.idea-detail-modal .detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+.idea-detail-modal .detail-body {
+  padding: var(--space-lg);
+}
+.idea-detail-modal .detail-desc {
+  font-size: var(--text-base);
+  color: var(--fg-muted);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.detail-actions {
+  display: flex;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-default);
+  margin-bottom: var(--space-lg);
+}
+.detail-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+  transition: all 0.15s;
+}
+.detail-action-btn:hover {
+  background: var(--bg-subtle);
+  color: var(--fg-default);
+}
+.detail-action-btn.voted {
+  background: var(--accent-subtle);
+  border-color: var(--accent-muted);
+  color: var(--accent-fg);
+}
+
+/* 评论 */
+.detail-comment {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-muted);
+}
+.detail-comment:last-child { border-bottom: none; }
+.detail-comment-author {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--fg-default);
+  margin-bottom: 4px;
+}
+.detail-comment-author span {
+  font-weight: 400;
+  color: var(--fg-subtle);
+  font-size: var(--text-xs);
+  margin-left: 8px;
+}
+
+/* ========== 发布想法表单 ========== */
+
+.icon-opt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.icon-opt:hover { border-color: var(--fg-subtle); }
+.icon-opt.selected {
+  border-color: var(--accent-fg);
+  background: var(--accent-subtle);
+}
+
+/* ========== Plaza Stats ========== */
+
+.plaza-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+.plaza-stat-row span:last-child {
+  font-weight: 600;
+  color: var(--fg-default);
+}
